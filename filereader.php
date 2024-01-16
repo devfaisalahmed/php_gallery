@@ -25,10 +25,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             echo ('only jpg, png and gif images are supported');
             exit();
         }
-        // if ( $_FILES['formFile']['size'] > 1 * 1024) {
-        //     echo "File size should be less then 1 mb";
-        //     exit();
-        // }
+        if ( $_FILES['formFile']['size'] < 1 * 1024) {
+            echo "File size should be less then 1 mb";
+            exit();
+        }
                
         foreach ( $_FILES['formFile']['tmp_name'] as $file => $v ) {
             $filleName    = $_FILES['formFile']['name'][$file];
